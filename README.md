@@ -5,7 +5,7 @@ A simple tool that allows you to backup and keep track of your projects
 ### - bup start
 Initializes **B.U.P** in a specific directory taking the following parameters from the user:
 
-```bash
+```
 $ bup start
 > Backup destination: example_route
 > Project name: example_name
@@ -24,7 +24,7 @@ also create a log.json that will hold the changes that happen to that specific d
 ### - bup add
 Saves the paths of the files within the working folder to a temporal .json
 
-```bash
+```
 $ bup add
 > Added: example_dir/example_file.txt
 > Added: example_dir/example_subdir
