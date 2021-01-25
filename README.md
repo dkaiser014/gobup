@@ -3,7 +3,7 @@ A simple tool that allows you to backup and keep track of your projects
 
 ## B.U.P Commands in detail
 ### - bup start
-Initializes **B.U.P** in a specific directory taking the following parameters from the user:
+Initializes **B.U.P** in a specific directory taking the following parameters from the user
 
 ```
 $ bup start
@@ -36,5 +36,4 @@ $ bup add
 The program will loop through the working directory to get the paths of the files and the folders, after looping through the dir, those paths will be stored in a temporal .json file
 
 ## TODO's
-* Write the tests for **add/add.go**
 * Allow the user to input specific files in **bup add** command
