@@ -35,5 +35,18 @@ $ bup add
 **¿How would it work?**
 The program will loop through the working directory to get the paths of the files and the folders, after looping through the dir, those paths will be stored in a temporal .json file
 
+### - bup commit <message>
+Creates a commit within the log.json file containing information about the changes that happened in the project
+
+```
+$bup commit <message>
+> New commit ID:sh147529wfaeh42 successfully added to log.json
+```
+
+**¿How would it work?**
+When running the command the user will have to input a message as an argument, that message will get stored inside the log.json file alongside previous ones
+
 ## TODO's
+* Implement the **bup commit <message>** functionality
+* Gracefully end the execution of the program
 * Allow the user to input specific files in **bup add** command
