@@ -129,7 +129,7 @@ func Start() string {
 	_ = ioutil.WriteFile(rootDir + string(os.PathSeparator) + "log.json", file, 0644)
 
 	file, _ = json.MarshalIndent(log, "", " ")
-	_ = ioutil.WriteFile(bupDir + string(os.PathSeparator) + "/log.json", file, 0644)
+	_ = ioutil.WriteFile(bupDir + string(os.PathSeparator) + "log.json", file, 0644)
 
 	return ""
 }
