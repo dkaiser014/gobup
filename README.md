@@ -39,7 +39,7 @@ The program will loop through the working directory to get the paths of the file
 Creates a commit within the log.json file containing information about the changes that happened in the project
 
 ```
-$bup commit <message>
+$ bup commit <message>
 > New commit ID:sh147529wfaeh42 successfully added to log.json
 ```
 
