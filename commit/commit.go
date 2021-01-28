@@ -101,7 +101,7 @@ func Commit() string {
 	file, _ = json.MarshalIndent(logs, "", " ")
 	_ = ioutil.WriteFile(GetBupDir() + string(os.PathSeparator) + "log.json", file, 0644)
 
-  fmt.Println(*message)
+  fmt.Printf("> New commit ID:%v successfully added to log.json", RandomString())
 
   return ""
 }
