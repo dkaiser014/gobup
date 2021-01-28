@@ -48,5 +48,6 @@ When running the command the user will have to input a message as an argument, t
 
 ## TODO's
 * Write the tests for the **bup commit** command
+* Change the file structure of the program
 * Gracefully end the execution of the program
 * Allow the user to input specific files in **bup add** command
