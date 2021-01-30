@@ -57,8 +57,24 @@ $ bup nbranch <folder>
 **¿How would it work?**
 It would create a new directory that will act as a branch to store different versions of the project,unfinished features, etc... 
 
+### - bup push
+Copies the content of the root directory to the backup directory or to the directory choosed
+by the user using a flag
+
+```
+$ bup push <folder>
+> Copied: backup_dir/example_file.txt
+> Copied: backup_dir/example_subdir
+> Copied: backup_dir/example_subdir/example_subfile.txt
+> File(s) successfully copied to /backup_dir/ ... exit code 0
+```
+
+**¿How would it work?**
+It would copy the content stored inside the root directory to the backup folder, or the branch choseen by the user
+
 ## TODO's
-* Implement the **bup nbranch** command
+* Implemente the **bup push** command
+* Write the test for the **bup nbranch** command
 * Change the file structure of the program
 * Gracefully end the execution of the program
 * Allow the user to input specific files in **bup add** command
