@@ -47,8 +47,8 @@ $ bup commit <message>
 When running the command the user will have to input a message as an argument, that message will get stored inside the log.json file alongside previous ones
 
 ## TODO's
-* Write the tests for the **bup commit** command
 * Implement the **bup branch** command
 * Change the file structure of the program
 * Gracefully end the execution of the program
 * Allow the user to input specific files in **bup add** command
+* Write better tests for the commands
