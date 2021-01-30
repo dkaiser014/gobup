@@ -46,8 +46,19 @@ $ bup commit <message>
 **¿How would it work?**
 When running the command the user will have to input a message as an argument, that message will get stored inside the log.json file alongside previous ones
 
+### - bup nbranch
+Creates a new directory within the directory of the backup
+
+```
+$ bup nbranch <folder>
+> Successfully created a new branch in /example/folder/
+```
+
+**¿How would it work?**
+It would create a new directory that will act as a branch to store different versions of the project,unfinished features, etc... 
+
 ## TODO's
-* Implement the **bup branch** command
+* Implement the **bup nbranch** command
 * Change the file structure of the program
 * Gracefully end the execution of the program
 * Allow the user to input specific files in **bup add** command
