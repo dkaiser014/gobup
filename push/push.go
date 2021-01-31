@@ -12,7 +12,8 @@ import (
 *
 * TODO
 * > Take console argument as input and check them
-* > Take all the files inside the folder inputed by the user
+* > Remove all the files inside the backup directory
+* > Take all the files inside the working directory
 * > Copy them to the backup directory
 * > Display a success message
 *
