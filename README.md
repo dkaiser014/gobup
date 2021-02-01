@@ -1,81 +1,124 @@
-# B.U.P Backup utility made with Go
-A simple tool that allows you to backup and keep track of your projects
+# B.U.P Utility
 
-## B.U.P Commands in detail
-### - bup start
-Initializes **B.U.P** in a specific directory taking the following parameters from the user
+A utility made with Go that allows you to backup your files with ease.
 
-```
-$ bup start
-> Backup destination: example_route
+## Commands
+
+### **bup start -f="/home/user/Documents/backup_folder"**
+
+Intializes **B.U.P** in a folder inputed by the user and creates a config file
+containing some useful information about the project.
+
+Example:
+
+```bash
+$ bup start -f="/home/user/Documents/backup_folder"
 > Project name: example_name
-> Project version (0.0.1) by default: example_version
-> Author (John Doe) by default: example_author
-> License (M.I.T) by default: example_license
+> Project version: example_version
+> Author: example_author
+> License: example_license
 ```
 
-**¿How would it work?**
-First of all it should store the data inputed by the user, after that it should check
-the data, particularly the directory where the backup will occur, if it does exists, the program
-will end execution, and if it doesn't exist the program will create that directory. After successfully
-creating the dir we should store all the already verifed data inside a newly created config.json file and
-also create a log.json that will hold the changes that happen to that specific directory.
+After the setup the application should create a config file with the following content:
 
-### - bup add
-Saves the paths of the files within the working folder to a temporal .json
-
+```json
+{
+    "id": "ab530a13e45914982b79f9b7e3fba994cfd1f3fb22f71cea1afbf02b460c6d1d",
+    "is_initialized": true,
+    "created_at": "01-02-2021 17:20",
+    "project_data": {
+        "backup_directory": "home/user/Documents/backup_folder",
+        "root_directory": "home/user/Documents/root_folder",
+        "project_name": "example_name",
+        "project_version": "0.0.1",
+        "author": "John Doe",
+        "license": "M.I.T",
+    },
+}
 ```
+
+**Note:** if the folder already exists the program will ask the user to delete it, or end execution
+
+### **bup add**
+
+Saves all the filepaths inside the `root_directory` and stores them in a temporal file to be later used.
+
+Example:
+
+```bash
 $ bup add
-> Added: example_dir/example_file.txt
-> Added: example_dir/example_subdir
-> Added: example_dir/example_subdir/example_subfile.txt
-> Filepath(s) successfully added to temp_files.json... exit code 0
+> Added: /home/user/Documents/root_folder/document.txt
+> Added: /home/user/Documents/root_folder/sub_folder/
+> Added: /home/user/Documents/root_folder/sub_folder/document2.txt
 ```
 
-**¿How would it work?**
-The program will loop through the working directory to get the paths of the files and the folders, after looping through the dir, those paths will be stored in a temporal .json file
+After saving all the filepaths the application should create a temporal file with the following content:
 
-### - bup commit <message>
-Creates a commit within the log.json file containing information about the changes that happened in the project
-
-```
-$ bup commit <message>
-> New commit ID:sh147529wfaeh42 successfully added to log.json
-```
-
-**¿How would it work?**
-When running the command the user will have to input a message as an argument, that message will get stored inside the log.json file alongside previous ones
-
-### - bup nbranch
-Creates a new directory within the directory of the backup
+```json
+{
+    "filepaths": [
+        "/home/user/Documents/root_folder/document.txt",
+        "/home/user/Documents/root_folder/sub_folder/",
+        "/home/user/Documents/root_folder/sub_folder/document2.txt",
+    ],
+}
 
 ```
-$ bup nbranch <folder>
-> Successfully created a new branch in /example/folder/
+
+**Note:** this command will only work if the config file is already created and initialized.
+
+### **bup commit -m="Example Message"**
+
+Creates a log file inside both the `root_directory` and the `backup_directory` containing a message inputed by the user.
+
+Example:
+
+```bash
+$ bup commit -m="Example Message"
+> Commit ID:6a31f6b3cd64604c3098 successfully saved within log.json
 ```
 
-**¿How would it work?**
-It would create a new directory that will act as a branch to store different versions of the project,unfinished features, etc... 
+After getting the message the application should create a log.json file with the following content:
 
-### - bup push
-Copies the content of the root directory to the backup directory or to the directory choosed
-by the user using a flag
-
+```json
+[
+    {
+        "id": "6a31f6b3cd64604c3098",
+        "user": "John Doe",
+        "message": "Example Message",
+        "created_at": "01-02-2021 18:15",
+        "filepaths": [
+            "/home/user/Documents/root_folder/document.txt",
+            "/home/user/Documents/root_folder/sub_folder/",
+            "/home/user/Documents/root_folder/sub_folder/document2.txt",
+        ],
+    }
+]
 ```
-$ bup push <folder>
-> Copied: backup_dir/example_file.txt
-> Copied: backup_dir/example_subdir
-> Copied: backup_dir/example_subdir/example_subfile.txt
-> File(s) successfully copied to /backup_dir/ ... exit code 0
+
+**Note:** this command will only work if the temporal file is already created.
+
+### **bup push -b**
+
+Copies the files from the `root_directory` to the `backup_directory` or to a specific `branch` inside.
+
+Example:
+
+```bash
+$ bup push -b
+> Copying: /home/user/Documents/root_folder/document.txt
+> Copying: /home/user/Documents/root_folder/sub_folder/
+> Copying: /home/user/Documents/root_folder/sub_folder/document2.txt
+> Successfully copied /home/user/Documents/root_folder/ content to /home/user/Documents/backup_folder/
 ```
 
-**¿How would it work?**
-It would copy the content stored inside the root directory to the backup folder, or the branch choseen by the user
+After running this command the temporal file will get removed from the `root_directory`
+
+**Note:** this command will only work if the log file is already created.
 
 ## TODO's
-* Implemente the **bup push** command
-* Write the test for the **bup nbranch** command
-* Change the file structure of the program
-* Gracefully end the execution of the program
-* Allow the user to input specific files in **bup add** command
-* Write better tests for the commands
+
+- [] Improve the file-structure of the project
+- [] Use packages for code reusability
+- [] Refactor the `start.go` command
+- [] Write test(s) for each command
