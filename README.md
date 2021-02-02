@@ -4,15 +4,16 @@ A utility made with Go that allows you to backup your files with ease.
 
 ## Commands
 
-### **bup start -f="/home/user/Documents/backup_folder"**
+### **bup start**
 
 Intializes **B.U.P** in a folder inputed by the user and creates a config file
 containing some useful information about the project.
 
 Example:
 
-```bash
-$ bup start -f="/home/user/Documents/backup_folder"
+```txt
+$ bup start
+> Backup directory: home/user/Documents/backup_folder
 > Project name: example_name
 > Project version: example_version
 > Author: example_author
@@ -25,15 +26,13 @@ After the setup the application should create a config file with the following c
 {
     "id": "ab530a13e45914982b79f9b7e3fba994cfd1f3fb22f71cea1afbf02b460c6d1d",
     "is_initialized": true,
-    "created_at": "01-02-2021 17:20",
-    "project_data": {
-        "backup_directory": "home/user/Documents/backup_folder",
-        "root_directory": "home/user/Documents/root_folder",
-        "project_name": "example_name",
-        "project_version": "0.0.1",
-        "author": "John Doe",
-        "license": "M.I.T",
-    },
+    "created_at": "01-02-2021 17:20",    
+    "backup_directory": "home/user/Documents/backup_folder",
+    "root_directory": "home/user/Documents/root_folder",
+    "project_name": "example_name",
+    "project_version": "0.0.1",
+    "author": "John Doe",
+    "license": "M.I.T",
 }
 ```
 
@@ -45,7 +44,7 @@ Saves all the filepaths inside the `root_directory` and stores them in a tempora
 
 Example:
 
-```bash
+```txt
 $ bup add
 > Added: /home/user/Documents/root_folder/document.txt
 > Added: /home/user/Documents/root_folder/sub_folder/
@@ -73,7 +72,7 @@ Creates a log file inside both the `root_directory` and the `backup_directory` c
 
 Example:
 
-```bash
+```txt
 $ bup commit -m="Example Message"
 > Commit ID:6a31f6b3cd64604c3098 successfully saved within log.json
 ```
@@ -104,7 +103,7 @@ Copies the files from the `root_directory` to the `backup_directory` or to a spe
 
 Example:
 
-```bash
+```txt
 $ bup push -b
 > Copying: /home/user/Documents/root_folder/document.txt
 > Copying: /home/user/Documents/root_folder/sub_folder/
@@ -118,7 +117,8 @@ After running this command the temporal file will get removed from the `root_dir
 
 ## TODO's
 
-- [] Improve the file-structure of the project
-- [] Use packages for code reusability
-- [] Refactor the `start.go` command
+- [x] Improve the file-structure of the project
+- [x] Use packages for code reusability
+- [x] Refactor the `start.go` command
+- [] Refactor the `add.go` command
 - [] Write test(s) for each command
