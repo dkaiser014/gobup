@@ -76,8 +76,6 @@ func Start() string {
 			License:         license,
 		}
 
-		fmt.Print(config)
-
 		file, _ := json.MarshalIndent(config, "", " ")
 		_ = ioutil.WriteFile(getrootdir.GetRootDir()+string(os.PathSeparator)+"config.json", file, 0644)
 		_ = ioutil.WriteFile(bupDir+string(os.PathSeparator)+"config.json", file, 0644)
