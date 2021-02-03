@@ -24,15 +24,15 @@ After the setup the application should create a config file with the following c
 
 ```json
 {
-    "id": "ab530a13e45914982b79f9b7e3fba994cfd1f3fb22f71cea1afbf02b460c6d1d",
-    "is_initialized": true,
-    "created_at": "01-02-2021 17:20",    
-    "backup_directory": "home/user/Documents/backup_folder",
-    "root_directory": "home/user/Documents/root_folder",
-    "project_name": "example_name",
-    "project_version": "0.0.1",
-    "author": "John Doe",
-    "license": "M.I.T",
+    "ID": "ab530a13e45914982b79f9b7e3fba994cfd1f3fb22f71cea1afbf02b460c6d1d",
+    "IsInit": true,
+    "CreatedAt": "01-02-2021 17:20",    
+    "BackupDirectory": "home/user/Documents/backup_folder",
+    "RootDirectory": "home/user/Documents/root_folder",
+    "ProjectName": "example_name",
+    "ProjectVersion": "0.0.1",
+    "Author": "John Doe",
+    "License": "M.I.T",
 }
 ```
 
@@ -55,7 +55,7 @@ After saving all the filepaths the application should create a temporal file wit
 
 ```json
 {
-    "filepaths": [
+    "Filepaths": [
         "/home/user/Documents/root_folder/document.txt",
         "/home/user/Documents/root_folder/sub_folder/",
         "/home/user/Documents/root_folder/sub_folder/document2.txt",
@@ -120,5 +120,5 @@ After running this command the temporal file will get removed from the `root_dir
 - [x] Improve the file-structure of the project
 - [x] Use packages for code reusability
 - [x] Refactor the `start.go` command
-- [] Refactor the `add.go` command
+- [x] Refactor the `add.go` command
 - [] Write test(s) for each command
