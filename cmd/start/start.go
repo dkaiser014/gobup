@@ -80,8 +80,8 @@ func Start() string {
 		_ = ioutil.WriteFile(getrootdir.GetRootDir()+string(os.PathSeparator)+"config.json", file, 0644)
 		_ = ioutil.WriteFile(bupDir+string(os.PathSeparator)+"config.json", file, 0644)
 
-		_ = ioutil.WriteFile(getrootdir.GetRootDir()+string(os.PathSeparator)+"log.json", []byte("Dummy.."), 0644)
-		_ = ioutil.WriteFile(bupDir+string(os.PathSeparator)+"log.json", []byte("Dummy..."), 0644)
+		_ = ioutil.WriteFile(getrootdir.GetRootDir()+string(os.PathSeparator)+"log.json", []byte(`{"Message": "Run ~bup commit~ to initialize log.json"}`), 0644)
+		_ = ioutil.WriteFile(bupDir+string(os.PathSeparator)+"log.json", []byte(`{"Message": "Run ~bup commit~ to initialize log.json"}`), 0644)
 	}
 
 	return ""
