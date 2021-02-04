@@ -66,14 +66,15 @@ After saving all the filepaths the application should create a temporal file wit
 
 **Note:** this command will only work if the config file is already created and initialized.
 
-### **bup commit -m="Example Message"**
+### **bup commit**
 
 Creates a log file inside both the `root_directory` and the `backup_directory` containing a message inputed by the user.
 
 Example:
 
 ```txt
-$ bup commit -m="Example Message"
+$ bup commit
+> Commit message: Example message
 > Commit ID:6a31f6b3cd64604c3098 successfully saved within log.json
 ```
 
@@ -82,29 +83,23 @@ After getting the message the application should create a log.json file with the
 ```json
 [
     {
-        "id": "6a31f6b3cd64604c3098",
-        "user": "John Doe",
-        "message": "Example Message",
-        "created_at": "01-02-2021 18:15",
-        "filepaths": [
-            "/home/user/Documents/root_folder/document.txt",
-            "/home/user/Documents/root_folder/sub_folder/",
-            "/home/user/Documents/root_folder/sub_folder/document2.txt",
-        ],
+        "ID": "6a31f6b3cd64604c3098",
+        "Message": "Example message",
+        "CreatedAt": "01-02-2021 18:15",
     }
 ]
 ```
 
 **Note:** this command will only work if the temporal file is already created.
 
-### **bup push -b**
+### **bup push**
 
-Copies the files from the `root_directory` to the `backup_directory` or to a specific `branch` inside.
+Copies the files from the `root_directory` to the `backup_directory`
 
 Example:
 
 ```txt
-$ bup push -b
+$ bup push
 > Copying: /home/user/Documents/root_folder/document.txt
 > Copying: /home/user/Documents/root_folder/sub_folder/
 > Copying: /home/user/Documents/root_folder/sub_folder/document2.txt
@@ -121,4 +116,6 @@ After running this command the temporal file will get removed from the `root_dir
 - [x] Use packages for code reusability
 - [x] Refactor the `start.go` command
 - [x] Refactor the `add.go` command
+- [x] Refactor the `commit.go` command
+- [x] Implement the `push.go` command
 - [] Write test(s) for each command
