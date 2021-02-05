@@ -38,34 +38,6 @@ After the setup the application should create a config file with the following c
 
 **Note:** if the folder already exists the program will ask the user to delete it, or end execution
 
-### **bup add**
-
-Saves all the filepaths inside the `root_directory` and stores them in a temporal file to be later used.
-
-Example:
-
-```txt
-$ bup add
-> Added: /home/user/Documents/root_folder/document.txt
-> Added: /home/user/Documents/root_folder/sub_folder/
-> Added: /home/user/Documents/root_folder/sub_folder/document2.txt
-```
-
-After saving all the filepaths the application should create a temporal file with the following content:
-
-```json
-{
-    "Filepaths": [
-        "/home/user/Documents/root_folder/document.txt",
-        "/home/user/Documents/root_folder/sub_folder/",
-        "/home/user/Documents/root_folder/sub_folder/document2.txt",
-    ],
-}
-
-```
-
-**Note:** this command will only work if the config file is already created and initialized.
-
 ### **bup commit**
 
 Creates a log file inside both the `root_directory` and the `backup_directory` containing a message inputed by the user.
@@ -90,7 +62,7 @@ After getting the message the application should create a log.json file with the
 ]
 ```
 
-**Note:** this command will only work if the temporal file is already created.
+**Note:** this command will only work if the log file is already created.
 
 ### **bup push**
 
