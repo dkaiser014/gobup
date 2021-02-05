@@ -25,7 +25,7 @@ type Log struct {
 // Commit creates a commit within the log.json file
 // containing a message inputed by the user.
 func Commit() string {
-	if existsfile.ExistsFile(getrootdir.GetRootDir() + string(os.PathSeparator) + "temp_files.json") {
+	if existsfile.ExistsFile(getrootdir.GetRootDir() + string(os.PathSeparator) + "log.json") {
 		fmt.Print("> Commit message: ")
 		scanner := bufio.NewScanner(os.Stdin)
 		scanner.Scan()
