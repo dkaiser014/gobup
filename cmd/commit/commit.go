@@ -13,6 +13,7 @@ import (
 	"bup/pkg/getbupdir"
 	"bup/pkg/getrootdir"
 	"bup/pkg/randomstring"
+	"bup/pkg/readjson"
 )
 
 // Log represents a structure for the log.json file.
@@ -35,19 +36,8 @@ func Commit() string {
 			log.Fatal("Error: please input a message in order to create a new commit...")
 		}
 
-		jsonFile, err := os.Open(getrootdir.GetRootDir() + string(os.PathSeparator) + "log.json")
-
-		if err != nil {
-			log.Fatal("Error:", err)
-		}
-
-		defer jsonFile.Close()
-
-		byteValue, _ := ioutil.ReadAll(jsonFile)
-
-		// Appending to log.json
 		var logs []Log
-		err = json.Unmarshal([]byte(byteValue), &logs)
+		_ = json.Unmarshal([]byte(readjson.ReadJSON(getrootdir.GetRootDir()+string(os.PathSeparator)+"log.json")), &logs)
 		logs = append(logs, Log{ID: randomstring.RandomString(), Message: message, CreatedAt: time.Now().String()})
 
 		file, _ := json.MarshalIndent(logs, "", " ")
