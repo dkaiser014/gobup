@@ -8,13 +8,14 @@
 package push
 
 import (
-	"bup/pkg/getbupdir"
-	"bup/pkg/getrootdir"
 	"io"
 	"io/ioutil"
 	"log"
 	"os"
 	"path"
+
+	"bup/pkg/getbupdir"
+	"bup/pkg/getrootdir"
 )
 
 // File copies a single file from the root_directory
