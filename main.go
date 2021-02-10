@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"bup/cmd/commit"
+	"bup/cmd/push"
 	"bup/cmd/start"
 )
 
@@ -26,5 +27,9 @@ _  /_/ / / /_/ /  _  ____/
 
 	if strings.Compare(arg, "commit") == 0 {
 		commit.Commit()
+	}
+
+	if strings.Compare(arg, "push") == 0 {
+		push.Push()
 	}
 }
