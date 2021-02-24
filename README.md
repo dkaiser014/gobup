@@ -96,12 +96,12 @@ $ bup push
 - [x] Refactor the `add.go` command
 - [x] Refactor the `commit.go` command
 - [x] Implement the `push.go` command
-- [] Print each file that is being copied in the `push.go` command
-- [] Improve the `push.go` command
-- [] Write better error messages
-- [] Gracefully shut down the program
-- [] Allow to backup specific files using the `push.go` command
-- [] Improve the .json files structure
-- [] Improve to overall look of the CLI App
-- [] Implement the `help.go` command
-- [] Write test(s) for each command
+- [ ] Print each file that is being copied in the `push.go` command
+- [ ] Improve the `push.go` command
+- [ ] Write better error messages
+- [ ] Gracefully shut down the program
+- [ ] Allow to backup specific files using the `push.go` command
+- [ ] Improve the .json files structure
+- [ ] Improve to overall look of the CLI App
+- [ ] Implement the `help.go` command
+- [ ] Write test(s) for each command
